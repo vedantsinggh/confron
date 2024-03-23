@@ -1,4 +1,7 @@
+INCLUDES :=  -Iinclude/log -Iinclude/files -Iinclude/sha256 
+SRC := src/log.cpp src/files.cpp src/sha256.cpp 
+
 .SILENT:
-run: main.cpp confron.h ./lib/Log.h ./lib/sha256.cpp ./lib/sha256.h
-	g++ -o app main.cpp ./lib/sha256.cpp && ./app
+run: main.cpp $(SRC)
+	g++ $(INCLUDES) $(SRC) main.cpp -o app && ./app
 
